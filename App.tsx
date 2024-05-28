@@ -1,9 +1,9 @@
 import { NativeBaseProvider, StatusBar } from 'native-base';
 import { useEffect } from 'react';
 
-import Rotas from './src/Rotas'
-import { Temas } from './src/estilos/temas';
-import { api } from './src/servicos/api';
+import Rotas from './src/Rotas';
+import api from './src/servicos/api';
+import { TEMAS } from './src/estilos/temas'
 
 export default function App() {
 
@@ -16,8 +16,8 @@ export default function App() {
   })
 
   return (
-    <NativeBaseProvider theme={Temas}>
-      <StatusBar backgroundColor={Temas.colors.blue[800]} />
+    <NativeBaseProvider theme={TEMAS}>
+      <StatusBar backgroundColor={TEMAS.colors.blue[800]} />
       <Rotas/>
     </NativeBaseProvider>
   );

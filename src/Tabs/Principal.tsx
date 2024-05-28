@@ -1,48 +1,45 @@
-import { VStack, Text, Image, ScrollView, Divider } from "native-base";
-
-import { Titulo } from "../componentes/titulo";
+import { VStack, Image, Box, ScrollView, Text, Divider } from "native-base";
 import Logo from '../assets/Logo.png';
-import { EntradaTexto } from "../componentes/EntradaTexto";
 import { Botao } from "../componentes/Botao";
+import { EntradaTexto } from "../componentes/EntradaTexto";
+import { Titulo } from "../componentes/Titulo";
+import { depoimentos } from "../utils/mock";
 
 
-export default function Principal() {
-    return (
-        <ScrollView>
-            <Image source={Logo} alt='Login'></Image>
-            <Titulo color="blue.500">Boas-vindas!</Titulo>
-            <VStack alignItems='center' justifyContent="center" p={5} shadow={2} borderRadius={10}>
-                <EntradaTexto
-                    placeholder="Digite a especialidade"></EntradaTexto>
-                <EntradaTexto
-                    placeholder="Digite a sua localização"></EntradaTexto>
-                <Botao
-                    mt={3}
-                    mb={3}
-                >Buscar</Botao>
-            </VStack>
-            <Titulo mb={5} alignSelf="center" color="blue.800">Depoimentos</Titulo>
-            {[1, 2, 3].map((_, index) => (
-                <VStack flex={1} alignItems='center' justifyContent="center" p={5} key={index} mb={5}>
-                    <Text mb={5}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Pellentesque aliquet velit eget orci malesuada interdum vel non metus.
-                        Pellentesque blandit cursus cursus. Aenean sed augue a diam pulvinar volutpat.
-                        Suspendisse potenti. Etiam lobortis et nunc laoreet commodo.
-                        Aliquam sit amet metus purus. Pellentesque efficitur aliquet erat, id sollicitudin diam elementum sit amet.
-                        Fusce tellus metus, hendrerit eu ullamcorper rutrum, finibus et metus.
-                        Praesent blandit, odio et ornare ullamcorper, est orci scelerisque arcu, id pharetra risus mi vitae enim. 
-                        Quisque in eros vitae risus ultrices tincidunt. Pellentesque eu suscipit neque. 
-                        Quisque ligula elit, molestie quis laoreet et, cursus a est. Suspendisse potenti. 
-                        Morbi quis velit odio. Suspendisse urna lorem, varius eu lorem congue, suscipit venenatis lacus. 
-                        Nulla ornare, libero a accumsan finibus, augue magna scelerisque tellus, sed tincidunt nunc justo vestibulum orci.
-                    </Text>
-                    <Text mb={5}>
-                        Yan, 69 anos, Xique-Xique/BA
-                    </Text>
-                    <Divider/>
-                </VStack>
-            ))}
-        </ScrollView>
-    )
+export default function Principal(){
+
+  return (
+    <ScrollView flex={1} bgColor="white">
+      <VStack flex={1} alignItems="flex-start" justifyContent="flex-start" p={5}>
+        <Image source={Logo} alt="Logo" mt={10} />
+        <Titulo color="blue.500">Boas-vindas!</Titulo>
+
+        <Box w="100%" borderRadius="lg" p={3} mt={10} shadow="1" borderRightRadius="md">
+          <EntradaTexto
+            placeholder="Digite a especialidade"
+          />
+          <EntradaTexto
+            placeholder="Digite sua localização"
+          />
+          <Botao mt={3} mb={3}>
+            Buscar
+          </Botao>
+        </Box>
+
+        <Titulo color="blue.800" alignSelf="center">Depoimentos</Titulo>
+        <VStack space={3} divider={<Divider />} w="100%">
+          {
+            depoimentos.map(depoimento => (
+              <Box key={depoimento.id} w="100%" borderRadius="lg" p={3}>
+                <Text color="gray.300" fontSize="md" textAlign="justify">
+                  {depoimento.text}
+                </Text>
+                <Text color="gray.500" fontSize="lg" fontWeight="bold" alignSelf="center" mt="2">{depoimento.titulo}</Text>
+              </Box>
+            ))
+          }
+        </VStack>
+      </VStack>
+    </ScrollView>
+  );
 }
