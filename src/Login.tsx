@@ -61,7 +61,7 @@ export default function Login({ navigation }: any) {
       <Box>
         <EntradaTexto
           label="Email"
-          placeholder="Insira seu e-mail"
+          placeholder="Insira seu endereço de e-mail"
           value={email}
           onChangeText={setEmail}
         />
