@@ -54,8 +54,7 @@ export default function Tabs() {
             )
           }}
         />
-      ))
-      }
+      ))}
     </Tab.Navigator>
   )
 }

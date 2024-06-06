@@ -39,6 +39,7 @@ export default function Perfil({ navigation }) {
         <Titulo color="blue.500">Informações pessoais</Titulo>
         <Titulo fontSize="lg" mb={1}>{dadosPaciente.nome}</Titulo>
         <Text>Email: {dadosPaciente?.email}</Text>
+        <Text>Telefone: {dadosPaciente?.telefone}</Text>
         <Text>Estado: {dadosPaciente?.endereco?.estado}</Text>
 
         <Divider mt={5} />
